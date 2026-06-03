@@ -1,0 +1,121 @@
+<html>
+
+<head>
+    <title>YouTube</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Manrope:wght@200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Playwrite+NZ+Basic:wght@100..400&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'nunito', sans-serif;
+            margin: 0;
+            min-height: 100vh;
+            background: linear-gradient(135deg,
+                    #020617,
+                    #0f172a,
+                    #1e3a8a);
+            position: relative;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+
+            background: url("stars.png") center/cover no-repeat;
+
+            opacity: 0.5;
+
+            z-index: -1;
+            /* Important */
+            pointer-events: none;
+        }
+
+        .topbar {
+            padding: 20px 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .topbar h2 {
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 10px;
+            background-color: #00a2ff;
+        }
+
+        .content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 150px;
+            margin-top: 20px;
+        }
+
+        .content div {
+            width: 350px;
+            height: 230px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 20px;
+            background-color: #fff;
+            cursor: pointer;
+        }
+
+
+        
+    </style>
+</head>
+
+<body>
+    <div class="topbar">
+        <h2>Websites</h2>
+    </div>
+
+    <div class="content">
+
+        <div class="card-website" onclick="window.location.href=''">
+
+            <img src="" alt="">
+
+            <div class="name">
+                <p>Card Website</p>
+            </div>
+
+            <div class="code">
+                <button>Source code</button>
+            </div>
+            
+            <div class="link">
+                <a href="">Video</a>
+            </div>
+
+        </div>
+
+        
+
+    </div>
+
+   
+
+    </div>
+</body>
+
+</html>
