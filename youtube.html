@@ -81,16 +81,16 @@
         }
 
 
-        .videos{
+        .videos {
             background-image: url('videos.png');
             background-size: cover;
-            border:1.5px solid rgba(255, 255, 255, 0.491);
+            border: 1.5px solid rgba(255, 255, 255, 0.491);
         }
 
-        .shorts{
+        .shorts {
             background-image: url('shorts.png');
             background-size: cover;
-            border:1.5px solid rgba(255, 255, 255, 0.491);
+            border: 1.5px solid rgba(255, 255, 255, 0.491);
         }
 
 
@@ -101,11 +101,11 @@
             margin-top: 30px;
         }
 
-        .category-head h2{
+        .category-head h2 {
             background-color: #1e3a8a;
             padding: 10px 20px;
             border-radius: 10px;
-            color:#fff;
+            color: #fff;
         }
 
         .categories {
@@ -129,103 +129,195 @@
             cursor: pointer;
         }
 
-        
 
-        .series{
+
+        .series {
             background-image: url('web builder.png');
             background-size: cover;
-            border:1.5px solid rgba(255, 255, 255, 0.491);
+            border: 1.5px solid rgba(255, 255, 255, 0.491);
         }
 
-        .series p{
+        .series p {
             background-color: #0145ff;
             border-top-left-radius: 10px;
             border-top-right-radius: 10px;
-            padding:8px 12px;
+            padding: 8px 12px;
             font-size: 14px;
-            width:150px;
+            width: 150px;
             text-align: center;
         }
 
-        .diy{
+        .diy {
             background-image: url('diy.png');
             background-size: cover;
-            border:1.5px solid rgba(255, 255, 255, 0.491);
+            border: 1.5px solid rgba(255, 255, 255, 0.491);
         }
 
-        .diy p{
+        .diy p {
             background-color: #ffaf01;
             border-top-left-radius: 10px;
-            color:black;
+            color: black;
             border-top-right-radius: 10px;
-            padding:8px 12px;
+            padding: 8px 12px;
             font-size: 14px;
-            width:150px;
+            width: 150px;
             text-align: center;
         }
 
-        .teardown{
+        .teardown {
             background-image: url('teardown.png');
             background-size: cover;
-            border:1.5px solid rgba(255, 255, 255, 0.491);
+            border: 1.5px solid rgba(255, 255, 255, 0.491);
         }
 
 
-        .teardown p{
+        .teardown p {
             background-color: #9101ff;
             border-top-left-radius: 10px;
             border-top-right-radius: 10px;
-            padding:8px 12px;
-            width:150px;
+            padding: 8px 12px;
+            width: 150px;
             text-align: center;
             font-size: 14px;
         }
 
 
-        .webdev{
+        .webdev {
             background-image: url('webdev.png');
             background-size: cover;
-            border:1.5px solid rgba(255, 255, 255, 0.491);
+            border: 1.5px solid rgba(255, 255, 255, 0.491);
         }
 
 
-        .webdev p{
+        .webdev p {
             background-color: #01c8ff;
             border-top-left-radius: 10px;
             border-top-right-radius: 10px;
-            padding:8px 12px;
-            width:150px;
+            padding: 8px 12px;
+            width: 150px;
             text-align: center;
             font-size: 14px;
         }
 
 
-        @media(max-width:500px){
-            .content{
-                gap:30px;
+
+
+
+
+
+        .loader-overlay {
+            position: fixed;
+            inset: 0;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background: linear-gradient(135deg,
+                    #020617,
+                    #0f172a,
+                    #1e3a8a);
+            visibility: visible;
+            z-index: 9999;
+            transition: opacity .5s ease;
+        }
+
+        .loader-overlay.hide {
+            opacity: 0;
+            pointer-events: none;
+            visibility: hidden;
+        }
+
+        .loader {
+            display: flex;
+            gap: 15px;
+        }
+
+        .loader span {
+            font-size: 60px;
+            font-weight: 800;
+            color: #fff;
+
+            animation: bounce 1s infinite;
+        }
+
+        .loader span:nth-child(2) {
+            animation-delay: .2s;
+        }
+
+        .loader span:nth-child(3) {
+            animation-delay: .4s;
+        }
+
+
+        .loader span:nth-child(1) {
+            color: #ff3131;
+            text-shadow: 0 0 20px #ff3131;
+        }
+
+        .loader span:nth-child(2) {
+            color: #ff8c00;
+            text-shadow: 0 0 20px #ff8c00;
+        }
+
+        .loader span:nth-child(3) {
+            color: #3b82f6;
+            text-shadow: 0 0 20px #3b82f6;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+                color: #fff;
             }
 
-            .content div{
-                width:280px;
-                height:190px;
+            50% {
+                transform: translateY(-20px);
+                color: #3b82f6;
+                text-shadow: 0 0 20px #3b82f6;
+            }
+        }
+
+
+        @media(max-width:500px) {
+            .content {
+                gap: 30px;
+            }
+
+            .content div {
+                width: 280px;
+                height: 190px;
             }
         }
     </style>
 </head>
 
 <body>
+
+    <div class="loader-overlay">
+        <div class="loader">
+            <span>E</span>
+            <span>X</span>
+            <span>P</span>
+        </div>
+    </div>
+
+
+
     <div class="topbar">
         <h2>YouTube</h2>
     </div>
 
     <div class="content">
 
-        <div class="videos" onclick="window.location.href=''">
-            
+        <div class="videos page-link" data-url="videos.html" onclick="window.location.href=''">
+
         </div>
 
-        <div class="shorts" onclick="window.location.href=''">
-            
+        <div class="shorts page-link" data-url="shorts.html" onclick="window.location.href=''">
+
         </div>
 
     </div>
@@ -236,23 +328,70 @@
 
     <div class="categories">
 
-        <div class="series">
+        <div class="series page-link">
             <p>Web Builder Series</p>
         </div>
 
-        <div class="diy">
+        <div class="diy page-link">
             <p>DIY</p>
         </div>
 
-        <div class="teardown">
+        <div class="teardown page-link">
             <p>Teardown</p>
         </div>
 
-        <div class="webdev">
+        <div class="webdev page-link">
             <p>Web Development</p>
         </div>
 
     </div>
 </body>
+
+
+<script>
+
+    const loader =
+        document.querySelector(".loader-overlay");
+
+    // Hide loader after page load
+    window.addEventListener("load", () => {
+
+        setTimeout(() => {
+
+            loader.classList.add("hide");
+
+        }, 500);
+
+    });
+
+    // Show loader before navigation
+    document.querySelectorAll(".page-link")
+        .forEach(item => {
+
+            item.addEventListener("click", () => {
+
+                const url =
+                    item.dataset.url;
+
+                loader.classList.remove("hide");
+
+                setTimeout(() => {
+
+                    window.location.href = url;
+
+                }, 500);
+
+            });
+
+        });
+
+    // Fix browser back button
+    window.addEventListener("pageshow", () => {
+
+        loader.classList.add("hide");
+
+    });
+
+</script>
 
 </html>

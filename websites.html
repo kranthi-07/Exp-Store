@@ -69,15 +69,54 @@
             margin-top: 20px;
         }
 
-        .content div {
+        .content .card-website {
             width: 350px;
-            height: 230px;
             display: flex;
             align-items: center;
             justify-content: center;
+            flex-direction: column;
             border-radius: 20px;
-            background-color: #fff;
+        }
+
+        .content .buttons {
+            width: 100%;
+            align-items: center;
+            margin-top: 10px;
+            justify-content: space-around;
+            display: flex;
+        }
+
+        .content .name {
+            color: #1e293b;
+            padding: 10px 15px;
+            border-radius: 10px;
+            /* margin-bottom: 15px; */
+            background-color: antiquewhite;
+        }
+
+        .content img {
+            width: 100%;
             cursor: pointer;
+            border: 1.5px solid rgba(255, 255, 255, 0.491);
+            border-radius: 20px;
+        }
+
+        .content button {
+            background-color: #7b00ff;
+            color: #fff;
+            padding: 13px 20px;
+            cursor: pointer;
+            border-radius: 10px;
+            border: 0;
+            outline: 0;
+        }
+
+        .content a {
+            text-decoration: none;
+            color: #fff;
+            background-color: #2563eb;
+            padding: 10px 20px;
+            border-radius: 10px;
         }
 
         /* CODE POPUP */
@@ -94,6 +133,7 @@
             backdrop-filter: blur(10px);
             visibility: hidden;
             z-index: 1000;
+            transition: .5s;
         }
 
         .code-popup.active {
@@ -176,7 +216,7 @@
         }
 
         .copy-code {
-            
+
             background: #2563eb;
         }
 
@@ -290,20 +330,24 @@
 
     <div class="content">
 
-        <div class="card-website" onclick="window.location.href=''">
+        <div class="card-website">
 
-            <img src="" alt="">
+            <img src="website-1.png" alt="CARD wEBSITE" onclick="window.location.href='card website/card.html'">
 
-            <div class="name">
-                <p>Card Website</p>
-            </div>
+            <div class="buttons">
 
-            <div class="code">
-                <button onclick="event.stopPropagation(); openSourceCode();">Source code</button>
-            </div>
+                <div class="name">
+                    <p>Card Website</p>
+                </div>
 
-            <div class="link">
-                <a href="">Video</a>
+
+                <div class="code">
+                    <button onclick="event.stopPropagation(); openSourceCode();">Source code</button>
+                </div>
+
+                <div class="link">
+                    <a href="https://youtu.be/iiqR0k0gGXg?si=OGhQ1OfwcPPpEKE8">Videos</a>
+                </div>
             </div>
 
         </div>
