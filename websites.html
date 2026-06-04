@@ -276,10 +276,99 @@
 
             font-style: italic;
         }
+
+
+
+        /* LOADER */
+
+        .loader-overlay {
+            position: fixed;
+            inset: 0;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background: linear-gradient(135deg,
+                    #020617,
+                    #0f172a,
+                    #1e3a8a);
+            visibility: visible;
+            z-index: 9999;
+            transition: opacity .5s ease;
+        }
+
+        .loader-overlay.hide {
+            opacity: 0;
+            pointer-events: none;
+            visibility: hidden;
+        }
+
+        .loader {
+            display: flex;
+            gap: 15px;
+        }
+
+        .loader span {
+            font-size: 60px;
+            font-weight: 800;
+            color: #fff;
+
+            animation: bounce 1s infinite;
+        }
+
+        .loader span:nth-child(2) {
+            animation-delay: .2s;
+        }
+
+        .loader span:nth-child(3) {
+            animation-delay: .4s;
+        }
+
+
+        .loader span:nth-child(1) {
+            color: #ff3131;
+            text-shadow: 0 0 20px #ff3131;
+        }
+
+        .loader span:nth-child(2) {
+            color: #ff8c00;
+            text-shadow: 0 0 20px #ff8c00;
+        }
+
+        .loader span:nth-child(3) {
+            color: #3b82f6;
+            text-shadow: 0 0 20px #3b82f6;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+                color: #fff;
+            }
+
+            50% {
+                transform: translateY(-20px);
+                color: #3b82f6;
+                text-shadow: 0 0 20px #3b82f6;
+            }
+        }
     </style>
 </head>
 
 <body>
+
+    <div class="loader-overlay">
+        <div class="loader">
+            <span>E</span>
+            <span>X</span>
+            <span>P</span>
+        </div>
+    </div>
+
+
 
     <div class="code-popup">
 
@@ -472,6 +561,50 @@
         });
 
 
+
+
+
+    const loader =
+        document.querySelector(".loader-overlay");
+
+    // Hide loader after page load
+    window.addEventListener("load", () => {
+
+        setTimeout(() => {
+
+            loader.classList.add("hide");
+
+        }, 500);
+
+    });
+
+    // Show loader before navigation
+    document.querySelectorAll(".page-link")
+        .forEach(item => {
+
+            item.addEventListener("click", () => {
+
+                const url =
+                    item.dataset.url;
+
+                loader.classList.remove("hide");
+
+                setTimeout(() => {
+
+                    window.location.href = url;
+
+                }, 500);
+
+            });
+
+        });
+
+    // Fix browser back button
+    window.addEventListener("pageshow", () => {
+
+        loader.classList.add("hide");
+
+    });
 </script>
 
 </html>

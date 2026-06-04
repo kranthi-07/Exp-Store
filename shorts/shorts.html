@@ -51,6 +51,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            gap: 15px;
         }
 
         .topbar h2 {
@@ -60,148 +61,49 @@
             background-color: red;
         }
 
+        .topbar .shorts-head {
+            background-color: rgb(255, 207, 144);
+            color: #000;
+        }
+
+
         .content {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 150px;
             flex-wrap: wrap;
-            margin-top: 20px;
-        }
-
-        .content div {
-            width: 350px;
-            height: 230px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 20px;
-            background-color: #fff;
-            cursor: pointer;
-        }
-
-
-        .videos {
-            background-image: url('videos.png');
-            background-size: cover;
-            border: 1.5px solid rgba(255, 255, 255, 0.491);
+            gap: 50px;
+            margin: 20px 0;
         }
 
         .shorts {
-            background-image: url('shorts.png');
-            background-size: cover;
-            border: 1.5px solid rgba(255, 255, 255, 0.491);
-        }
-
-
-        .category-head {
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-top: 30px;
+            flex-direction: column;
         }
 
-        .category-head h2 {
-            background-color: #1e3a8a;
-            padding: 10px 20px;
-            border-radius: 10px;
-            color: #fff;
-        }
-
-        .categories {
-            margin-top: 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 50px;
-            flex-wrap: wrap;
-            margin-bottom: 50px;
-        }
-
-        .categories div {
-            width: 250px;
-            height: 160px;
+        .shorts img {
             border-radius: 20px;
-            display: flex;
-            align-items: end;
-            justify-content: center;
-            color: #fff;
-            cursor: pointer;
-        }
-
-
-
-        .series {
-            background-image: url('web builder.png');
-            background-size: cover;
+            margin-bottom: 10px;
             border: 1.5px solid rgba(255, 255, 255, 0.491);
-        }
-
-        .series p {
-            background-color: #0145ff;
-            border-top-left-radius: 10px;
-            border-top-right-radius: 10px;
-            padding: 8px 12px;
-            font-size: 14px;
-            width: 150px;
-            text-align: center;
-        }
-
-        .diy {
-            background-image: url('diy.png');
-            background-size: cover;
-            border: 1.5px solid rgba(255, 255, 255, 0.491);
-        }
-
-        .diy p {
-            background-color: #ffaf01;
-            border-top-left-radius: 10px;
-            color: black;
-            border-top-right-radius: 10px;
-            padding: 8px 12px;
-            font-size: 14px;
-            width: 150px;
-            text-align: center;
-        }
-
-        .teardown {
-            background-image: url('teardown.png');
-            background-size: cover;
-            border: 1.5px solid rgba(255, 255, 255, 0.491);
+            width: 170px;
+            height: 270px;
         }
 
 
-        .teardown p {
-            background-color: #9101ff;
-            border-top-left-radius: 10px;
-            border-top-right-radius: 10px;
-            padding: 8px 12px;
-            width: 150px;
+        .shorts P {
+            background-color: rgb(255, 207, 144);
+            color: #000;
+            border-radius: 10px;
+            padding: 5px 10px;
+            width: 65%;
             text-align: center;
             font-size: 14px;
         }
 
 
-        .webdev {
-            background-image: url('webdev.png');
-            background-size: cover;
-            border: 1.5px solid rgba(255, 255, 255, 0.491);
-        }
-
-
-        .webdev p {
-            background-color: #01c8ff;
-            border-top-left-radius: 10px;
-            border-top-right-radius: 10px;
-            padding: 8px 12px;
-            width: 150px;
-            text-align: center;
-            font-size: 14px;
-        }
-
-
-
-/* LOADER OVERLAY */
+        /* LOADER OVERLAY */
 
 
 
@@ -308,43 +210,73 @@
 
     <div class="topbar">
         <h2>YouTube</h2>
+        <h2 class="shorts-head">Shorts</h2>
     </div>
 
     <div class="content">
 
-        <div class="videos page-link" data-url="videos.html" onclick="window.location.href='videos/videos.html'">
-
+        <div class="short-1 shorts" onclick="window.location.href=''">
+            <img src="1.png" alt="">
+            <p>Start Web Dev Today | HTML Day 1</p>
         </div>
 
-        <div class="shorts page-link" data-url="shorts.html" onclick="window.location.href='shorts/shorts.html'">
+        <div class="short-2 shorts" onclick="window.location.href=''">
+            <img src="2.png" alt="">
+            <p>Start Web Dev Today | HTML Day 2</p>
+        </div>
 
+        <div class="short-3 shorts" onclick="window.location.href=''">
+            <img src="3.png" alt="">
+            <p>Start Web Dev Today | CSS Day 1</p>
+        </div>
+
+        <div class="short-4 shorts" onclick="window.location.href=''">
+            <img src="4.png" alt="">
+            <p>Start Web Dev Today | HTML Day 3</p>
+        </div>
+
+        <div class="short-5 shorts" onclick="window.location.href=''">
+            <img src="5.png" alt="">
+            <p>Start Web Dev Today | HTML Day 4</p>
+        </div>
+
+        <div class="short-6 shorts" onclick="window.location.href=''">
+            <img src="6.png" alt="">
+            <p>Inside a Keyboard</p>
+        </div>
+
+        <div class="short-7 shorts" onclick="window.location.href=''">
+            <img src="7.png" alt="">
+            <p>Laptop Stand</p>
+        </div>
+
+        <div class="short-8 shorts" onclick="window.location.href=''">
+            <img src="8.png" alt="">
+            <p>Web Builder Series #1</p>
+        </div>
+
+        <div class="short-9 shorts" onclick="window.location.href=''">
+            <img src="9.png" alt="">
+            <p>Web Builder Series #2</p>
+        </div>
+
+        <div class="short-10 shorts" onclick="window.location.href=''">
+            <img src="10.png" alt="">
+            <p>Build your Buds Case</p>
+        </div>
+
+        <div class="short-11 shorts" onclick="window.location.href=''">
+            <img src="11.png" alt="">
+            <p>Web Builder Series #3</p>
+        </div>
+
+        <div class="short-12 shorts" onclick="window.location.href=''">
+            <img src="12.png" alt="">
+            <p>New Project Guys</p>
         </div>
 
     </div>
 
-    <div class="category-head">
-        <h2>Categories</h2>
-    </div>
-
-    <div class="categories">
-
-        <div class="series page-link"  onclick="window.location.href='web-builder.html'">
-            <p>Web Builder Series</p>
-        </div>
-
-        <div class="diy page-link"  onclick="window.location.href='diy.html'">
-            <p>DIY</p>
-        </div>
-
-        <div class="teardown page-link"  onclick="window.location.href='teardown.html'">
-            <p>Teardown</p>
-        </div>
-
-        <div class="webdev page-link"  onclick="window.location.href='web-dev.html'">
-            <p>Web Development</p>
-        </div>
-
-    </div>
 </body>
 
 
