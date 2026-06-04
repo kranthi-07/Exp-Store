@@ -209,7 +209,7 @@
         document.querySelector(".code-popup")
             .classList.add("active");
 
-        loadCode("source-codes/card-html.txt");
+        loadCode("source-codes/CARD-HTML.html");
 
     }
 
