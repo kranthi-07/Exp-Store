@@ -101,15 +101,116 @@
         }
 
         .code-box {
-            width: 80%;
-            max-width: 900px;
-            height: 70vh;
+            width: 90%;
+            max-width: 1000px;
+            height: 80vh;
 
             background: #0f172a;
+
+            border: 1px solid rgba(255, 255, 255, .1);
+
             border-radius: 20px;
 
+            display: flex;
+            flex-direction: column;
+
+            overflow: hidden;
+        }
+
+
+        .code-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 15px 20px;
+
+            border-bottom: 1px solid rgba(255, 255, 255, .1);
+        }
+
+        .tabs {
+            display: flex;
+            gap: 10px;
+        }
+
+        .tab {
+            border: none;
+
+            background: #1e293b;
+
+            color: white;
+
+            padding: 10px 20px;
+
+            border-radius: 10px;
+
+            cursor: pointer;
+
+            transition: .3s;
+        }
+
+        .tab.active {
+            background: #2563eb;
+        }
+
+        .actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .copy-code,
+        .close-code {
+
+            border: none;
+
+            color: white;
+
+            cursor: pointer;
+
+            border-radius: 10px;
+
+            padding: 10px 15px;
+
+            transition: .3s;
+        }
+
+        .copy-code {
+            background: #2563eb;
+        }
+
+        .close-code {
+            background: #ef4444;
+        }
+
+        .copy-code:hover,
+        .close-code:hover {
+            transform: translateY(-2px);
+        }
+
+        .code-view {
+            flex: 1;
+
+            overflow: auto;
+
             padding: 20px;
-            position: relative;
+        }
+
+        .code-view pre {
+            margin: 0;
+
+            white-space: pre-wrap;
+
+            color: #fff;
+
+            line-height: 1.7;
+        }
+
+        .code-view::-webkit-scrollbar {
+            display: none;
+        }
+
+        .code-view {
+            scrollbar-width: none;
         }
 
         .code-box pre {
@@ -126,13 +227,38 @@
 
         <div class="code-box">
 
-            <button class="close-code">✕</button>
+            <div class="code-header">
 
-            <button class="copy-code">Copy</button>
+                <div class="tabs">
+                    <button class="tab active" onclick="loadCode('source-codes/card-html.txt',this)">
+                        HTML
+                    </button>
 
-            <pre>
-                <code id="sourceCode"></code>
-            </pre>
+                    <button class="tab" onclick="loadCode('source-codes/card-css.txt',this)">
+                        CSS
+                    </button>
+
+                    <button class="tab" onclick="loadCode('source-codes/card-js.txt',this)">
+                        JS
+                    </button>
+                </div>
+
+                <div class="actions">
+                    <button class="copy-code">
+                        <i class="ri-file-copy-line"></i>
+                        Copy
+                    </button>
+
+                    <button class="close-code">
+                        <i class="ri-close-line"></i>
+                    </button>
+                </div>
+
+            </div>
+
+            <div class="code-view">
+                <pre><code id="sourceCode"></code></pre>
+            </div>
 
         </div>
 
@@ -176,41 +302,62 @@
 <script>
     const codeDisplay = document.getElementById("sourceCode");
 
-    function loadCode(file) {
+    function loadCode(file, button) {
+
+        document
+            .querySelectorAll(".tab")
+            .forEach(tab => tab.classList.remove("active"));
+
+        if (button) {
+            button.classList.add("active");
+        }
 
         fetch(file)
-            .then(response => {
-
-                if (!response.ok) {
-                    throw new Error("File not found");
-                }
-
-                return response.text();
-
-            })
+            .then(res => res.text())
             .then(code => {
-
-                codeDisplay.textContent = code;
-
-            })
-            .catch(error => {
-
-                codeDisplay.textContent =
-                    "Failed to load source code.";
-
-                console.error(error);
-
+                sourceCode.textContent = code;
             });
 
     }
 
+
+    const copyBtn =
+        document.querySelector(".copy-code");
+
+    copyBtn.addEventListener("click", () => {
+
+        navigator.clipboard.writeText(
+            sourceCode.textContent
+        );
+
+        copyBtn.innerHTML =
+            '<i class="ri-check-line"></i> Copied';
+
+        copyBtn.style.background =
+            "#16a34a";
+
+        setTimeout(() => {
+
+            copyBtn.innerHTML =
+                '<i class="ri-file-copy-line"></i> Copy';
+
+            copyBtn.style.background =
+                "#2563eb";
+
+        }, 2000);
+
+    });
+
     function openSourceCode() {
 
-        document.querySelector(".code-popup")
+        document
+            .querySelector(".code-popup")
             .classList.add("active");
 
-        loadCode("source-codes/card-html.txt");
-
+        loadCode(
+            "source-codes/card-html.txt",
+            document.querySelector(".tab")
+        );
     }
 
     document.querySelector(".close-code")
