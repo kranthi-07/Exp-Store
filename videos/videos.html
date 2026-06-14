@@ -67,12 +67,10 @@
 
 
         .content{
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
             gap:50px;
-            margin:20px 0;
+            margin:20px;
         }
 
 
@@ -94,6 +92,7 @@
         .videos p{
             color:#fff;
             font-size: 14px;
+            margin-top: 5px;
             width:80%;
             text-align: center;
             background-color: #184895;
@@ -186,13 +185,19 @@
 
         @media(max-width:500px) {
             .content {
-                gap: 30px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 50px;
             }
 
-            .content div {
-                width: 280px;
-                height: 190px;
+            .content img {
+                width: 250px;
+                height: 150px;
             }
+
+            
         }
     </style>
 </head>
@@ -213,39 +218,39 @@
         <h2>YouTube</h2><h2 class="videos-head">Videos</h2>
     </div>
 
-    <div class="content ">
+    <div class="content">
 
-        <div class="video-1 videos" onclick="window.location.href=''">
+        <div class="video-1 videos" data-url="https://youtu.be/-4P5N4J5RWs?si=IkYgbA1ohdIrd_P0">
             <img src="1.png" alt="">
             <p>Start Web Development from Scratch Today</p>
         </div>
         
-        <div class="video-2 videos" onclick="window.location.href=''">
+        <div class="video-2 videos" data-url="https://youtu.be/z3Br-ytyMSw?si=tx0Z3NjqUOoyTDBk">
             <img src="2.png" alt="">
             <p>What's inside a Keyboard</p>
         </div>
         
-        <div class="video-3 videos" onclick="window.location.href=''">
+        <div class="video-3 videos" data-url="https://youtu.be/QHO16s0LO-M?si=XtyT7lNRAuEazbxo">
             <img src="3.png" alt="">
             <p>I have built an Laptop stand from scratch</p>
         </div>
         
-        <div class="video-4 videos" onclick="window.location.href=''">
+        <div class="video-4 videos" data-url="https://youtu.be/iiqR0k0gGXg?si=XOU8hTHO-D-Hmskl">
             <img src="4.png" alt="">
             <p>Web Builder Series #1</p>
         </div>
         
-        <div class="video-5 videos" onclick="window.location.href=''">
+        <div class="video-5 videos" data-url="https://youtu.be/n4NWbveArbQ?si=LB3wePO7tViyovR4">
             <img src="5.png" alt="">
             <p>Web Builder Series #2</p>
         </div>
         
-        <div class="video-6 videos" onclick="window.location.href=''">
+        <div class="video-6 videos" data-url="https://youtu.be/UaB-UQdbqBc?si=4EN_vSiz1KcmHHoS">
             <img src="6.jpg" alt="">
             <p>Let's Build a Buds Case</p>
         </div>
         
-        <div class="video-7 videos" onclick="window.location.href=''">
+        <div class="video-7 videos" data-url="https://youtu.be/CVG-mzezNlk?si=0yNf3t3FAqTraYqT">
             <img src="7.png" alt="">
             <p>Web Builder Series #3</p>
         </div>
@@ -297,6 +302,22 @@
     window.addEventListener("pageshow", () => {
 
         loader.classList.add("hide");
+
+    });
+
+
+
+    document.querySelectorAll(".videos").forEach(video => {
+
+        video.addEventListener("click", () => {
+
+            const url = video.dataset.url;
+
+            if (url) {
+                window.open(url, "_blank");
+            }
+
+        });
 
     });
 

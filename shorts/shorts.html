@@ -68,12 +68,11 @@
 
 
         .content {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 50px;
-            margin: 20px 0;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin: 20px auto;
+            justify-items: center;
         }
 
         .shorts {
@@ -97,7 +96,7 @@
             color: #000;
             border-radius: 10px;
             padding: 5px 10px;
-            width: 65%;
+            width: 170px;
             text-align: center;
             font-size: 14px;
         }
@@ -185,12 +184,19 @@
 
         @media(max-width:500px) {
             .content {
+                grid-template-columns: repeat(2,1fr);
+                margin:20px;
                 gap: 30px;
             }
 
-            .content div {
-                width: 280px;
-                height: 190px;
+            .content img {
+                width: 140px;
+                height: 200px;
+            }
+
+            .shorts p{
+                font-size: 12px;
+                max-width: 140px;
             }
         }
     </style>
@@ -215,64 +221,69 @@
 
     <div class="content">
 
-        <div class="short-1 shorts" onclick="window.location.href=''">
+        <div class="short-1 shorts" data-video="hZWaJjajRCs">
             <img src="1.png" alt="">
             <p>Start Web Dev Today | HTML Day 1</p>
         </div>
 
-        <div class="short-2 shorts" onclick="window.location.href=''">
+        <div class="short-2 shorts" data-video="QMR2LrM4vo4">
             <img src="2.png" alt="">
             <p>Start Web Dev Today | HTML Day 2</p>
         </div>
 
-        <div class="short-3 shorts" onclick="window.location.href=''">
+        <div class="short-3 shorts" data-video="xv-phSJe6Eg">
             <img src="3.png" alt="">
             <p>Start Web Dev Today | CSS Day 1</p>
         </div>
 
-        <div class="short-4 shorts" onclick="window.location.href=''">
+        <div class="short-4 shorts" data-video="-p_Sl37jXP8">
             <img src="4.png" alt="">
             <p>Start Web Dev Today | HTML Day 3</p>
         </div>
 
-        <div class="short-5 shorts" onclick="window.location.href=''">
+        <div class="short-5 shorts" data-video="B-r8Q1oX4Ko">
             <img src="5.png" alt="">
             <p>Start Web Dev Today | HTML Day 4</p>
         </div>
 
-        <div class="short-6 shorts" onclick="window.location.href=''">
+        <div class="short-6 shorts" data-video="73QhSMUNGGY">
             <img src="6.png" alt="">
             <p>Inside a Keyboard</p>
         </div>
 
-        <div class="short-7 shorts" onclick="window.location.href=''">
+        <div class="short-7 shorts" data-video="lDrVKk9TjFM">
             <img src="7.png" alt="">
             <p>Laptop Stand</p>
         </div>
 
-        <div class="short-8 shorts" onclick="window.location.href=''">
+        <div class="short-8 shorts" data-video="zU-0J7hxP2A">
             <img src="8.png" alt="">
             <p>Web Builder Series #1</p>
         </div>
 
-        <div class="short-9 shorts" onclick="window.location.href=''">
+        <div class="short-9 shorts" data-video="gQQShPVdf5I">
             <img src="9.png" alt="">
             <p>Web Builder Series #2</p>
         </div>
 
-        <div class="short-10 shorts" onclick="window.location.href=''">
+        <div class="short-10 shorts" data-video="bOQ64w_u490">
             <img src="10.png" alt="">
             <p>Build your Buds Case</p>
         </div>
 
-        <div class="short-11 shorts" onclick="window.location.href=''">
+        <div class="short-11 shorts" data-video="Hfiz6nus0Pg">
             <img src="11.png" alt="">
             <p>Web Builder Series #3</p>
         </div>
 
-        <div class="short-12 shorts" onclick="window.location.href=''">
+        <div class="short-12 shorts" data-video="ZuF9IJ6YC6o">
             <img src="12.png" alt="">
             <p>New Project Guys</p>
+        </div>
+
+        <div class="short-13 shorts" data-video="e-F0mUEiTMc">
+            <img src="8.png" alt="">
+            <p>Web Builder Series</p>
         </div>
 
     </div>
@@ -323,6 +334,39 @@
         loader.classList.add("hide");
 
     });
+
+
+    document.querySelectorAll(".videos").forEach(video => {
+
+        video.addEventListener("click", () => {
+
+            const url = video.dataset.url;
+
+            if (url) {
+                window.open(url, "_blank");
+            }
+
+        });
+
+    });
+
+
+
+    document.querySelectorAll(".shorts")
+        .forEach(short => {
+
+            short.addEventListener("click", () => {
+
+                const id = short.dataset.video;
+
+                window.open(
+                    `https://www.youtube.com/watch?v=${id}`,
+                    "_blank"
+                );
+
+            });
+
+        });
 
 </script>
 
